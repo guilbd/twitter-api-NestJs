@@ -15,7 +15,7 @@ const passport_1 = require("@nestjs/passport");
 const common_1 = require("@nestjs/common");
 const jwt_constants_1 = require("./jwt.constants");
 const prisma_service_1 = require("../prisma.service");
-let JwtStrategy = class JwtStrategy extends passport_1.PassportStrategy(passport_jwt_1.Strategy) {
+let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
     constructor(db) {
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -32,7 +32,7 @@ let JwtStrategy = class JwtStrategy extends passport_1.PassportStrategy(passport
     }
 };
 JwtStrategy = __decorate([
-    common_1.Injectable(),
+    (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], JwtStrategy);
 exports.JwtStrategy = JwtStrategy;

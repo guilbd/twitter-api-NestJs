@@ -35,35 +35,35 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
-    common_1.Get('list'),
+    (0, common_1.Get)('list'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "all", null);
 __decorate([
-    common_1.Get(':username'),
-    __param(0, common_1.Param('username')),
+    (0, common_1.Get)(':username'),
+    __param(0, (0, common_1.Param)('username')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findUnique", null);
 __decorate([
-    common_1.Delete('/delete/:username'),
-    __param(0, common_1.Param('username')),
+    (0, common_1.Delete)('/delete/:username'),
+    __param(0, (0, common_1.Param)('username')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "deleteUser", null);
 __decorate([
-    common_1.Post(),
-    __param(0, common_1.Body()),
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_dto_1.CreateUserDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
 UsersController = __decorate([
-    common_1.UseGuards(passport_1.AuthGuard('jwt')),
-    common_1.Controller('users'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
+    (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
 exports.UsersController = UsersController;

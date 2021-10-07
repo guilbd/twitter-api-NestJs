@@ -14,18 +14,18 @@ const class_validator_1 = require("class-validator");
 class CreateUserDto {
 }
 __decorate([
-    class_validator_1.IsString(),
-    class_validator_1.Length(3, 30),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(3, 30),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "username", void 0);
 __decorate([
-    class_validator_1.IsString(),
-    class_validator_1.Length(8, 30),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(8, 30),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
 __decorate([
-    class_validator_1.IsString(),
-    class_validator_1.Length(2, 50),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(2, 50),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "displayName", void 0);
 exports.CreateUserDto = CreateUserDto;

@@ -11,11 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
-const client_1 = require(".prisma/client");
 const passport_1 = require("@nestjs/passport");
 const auth_service_1 = require("./auth.service");
 const auth_dto_1 = require("./auth.dto");
@@ -32,22 +30,22 @@ let AuthController = class AuthController {
     }
 };
 __decorate([
-    common_1.Post('login'),
-    __param(0, common_1.Body()),
+    (0, common_1.Post)('login'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [auth_dto_1.LoginDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "login", null);
 __decorate([
-    common_1.UseGuards(passport_1.AuthGuard('jwt')),
-    common_1.Get('me'),
-    __param(0, auth_user_decorator_1.default()),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
+    (0, common_1.Get)('me'),
+    __param(0, (0, auth_user_decorator_1.default)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _a : Object]),
-    __metadata("design:returntype", typeof (_b = typeof client_1.User !== "undefined" && client_1.User) === "function" ? _b : Object)
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Object)
 ], AuthController.prototype, "me", null);
 AuthController = __decorate([
-    common_1.Controller('auth'),
+    (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
 exports.AuthController = AuthController;

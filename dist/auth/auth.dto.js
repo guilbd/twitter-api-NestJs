@@ -14,13 +14,13 @@ const class_validator_1 = require("class-validator");
 class LoginDto {
 }
 __decorate([
-    class_validator_1.IsString(),
-    class_validator_1.Length(3, 30),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(3, 30),
     __metadata("design:type", String)
 ], LoginDto.prototype, "username", void 0);
 __decorate([
-    class_validator_1.IsString(),
-    class_validator_1.Length(8, 30),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.Length)(8, 30),
     __metadata("design:type", String)
 ], LoginDto.prototype, "password", void 0);
 exports.LoginDto = LoginDto;

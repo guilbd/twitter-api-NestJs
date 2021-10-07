@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   Controller,
   Body,
@@ -8,9 +7,7 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-=======
-import { Controller, Body, Get, Post, Param, Delete,  UseGuards } from '@nestjs/common';
->>>>>>> a354ec937835f484c45f2b62bcb27a9b5695e464
+
 import { User } from '@prisma/client';
 import { CreateUserDto } from './user.dto';
 import { UsersService } from './users.service';

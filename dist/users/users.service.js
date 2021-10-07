@@ -49,7 +49,7 @@ let UsersService = class UsersService {
     }
 };
 UsersService = __decorate([
-    common_1.Injectable(),
+    (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], UsersService);
 exports.UsersService = UsersService;
