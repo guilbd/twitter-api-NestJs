@@ -9,48 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersService = void 0;
+exports.JwtStrategy = void 0;
+const passport_jwt_1 = require("passport-jwt");
+const passport_1 = require("@nestjs/passport");
 const common_1 = require("@nestjs/common");
+const jwt_constants_1 = require("./jwt.constants");
 const prisma_service_1 = require("../prisma.service");
-const bcrypt = require("bcrypt");
-let UsersService = class UsersService {
+let JwtStrategy = class JwtStrategy extends passport_1.PassportStrategy(passport_jwt_1.Strategy) {
     constructor(db) {
+        super({
+            jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
+            ignoreExpiration: false,
+            secretOrKey: jwt_constants_1.jwtConstants.secret,
+        });
         this.db = db;
     }
-    async getAll() {
-        return this.db.user.findMany({});
-    }
-    async deleteUser(where) {
-        return this.db.user.delete({
-            where,
-        });
-    }
-    async findUnique(username) {
+    async validate(payload) {
         const user = await this.db.user.findUnique({
-            where: { username },
-        });
-        if (!user) {
-            throw new common_1.NotFoundException();
-        }
-        return user;
-    }
-    async create(data) {
-        const existing = await this.db.user.findUnique({
-            where: { username: data.username },
-        });
-        if (existing) {
-            throw new common_1.ConflictException('username already exists');
-        }
-        const hashedPassword = await bcrypt.hash(data.password, 10);
-        const user = await this.db.user.create({
-            data: Object.assign(Object.assign({}, data), { password: hashedPassword }),
+            where: { username: payload.username },
         });
         return user;
     }
 };
-UsersService = __decorate([
+JwtStrategy = __decorate([
     common_1.Injectable(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
-], UsersService);
-exports.UsersService = UsersService;
-//# sourceMappingURL=users.service.js.map
+], JwtStrategy);
+exports.JwtStrategy = JwtStrategy;
+//# sourceMappingURL=jwt.strategy.js.map

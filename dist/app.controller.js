@@ -22,14 +22,14 @@ let AppController = class AppController {
     }
 };
 __decorate([
-    (0, common_1.UseGuards)(simple_guard_1.SimpleGuard),
-    (0, common_1.Get)('hello'),
+    common_1.UseGuards(simple_guard_1.SimpleGuard),
+    common_1.Get('hello'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
 AppController = __decorate([
-    (0, common_1.Controller)(),
+    common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
 exports.AppController = AppController;
